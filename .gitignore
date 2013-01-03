@@ -20,12 +20,6 @@ tramp
 *.iws
 .idea/
 
-# Linux / Unix
-
-.*
-!.gitignore
-*~
-
 # OSX
 
 .DS_Store
