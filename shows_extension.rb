@@ -14,8 +14,8 @@ class ShowsExtension < Radiant::Extension
   end
 
   def activate
-    # tab 'Content' do
-    #   add_item "Shows", "/admin/shows", :after => "Pages"
-    # end
+    tab "Shows", :after => "Content" do
+      add_item "Venues", "/admin/venues"
+    end
   end
 end

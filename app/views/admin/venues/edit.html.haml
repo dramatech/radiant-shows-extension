@@ -1,0 +1,4 @@
+%h1= t('venues.edit_venue')
+- form_for [:admin, model], :url => admin_venue_url(model) do |f|
+  =render 'fields', :object => f
+- content_for 'venue_scripts', venue_edit_javascripts

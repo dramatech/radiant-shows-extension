@@ -1,0 +1,8 @@
+%p.title
+  = label :venue_page, :name, 'Title'
+  = object.text_field :name, :class => 'textbox', :maxlength => 255, :id => 'venue_name'
+%p.buttons{:style=>"clear: left"}
+  = save_model_button(model)
+  = save_model_and_continue_editing_button(model)
+  = t('or')
+  = link_to t('cancel'), admin_venues_url

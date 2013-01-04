@@ -1,0 +1,21 @@
+.outset
+  %table.index
+    %thead
+      %tr
+        %th= t('venues.venues')
+        %th= t('modify')
+    %tbody
+      - unless models.blank?
+        - models.each do |item|
+          %tr
+            %td.name
+              = link_to item.name, edit_admin_venue_path(item)
+            %td.actions= link_to(image('minus') + ' ' + t('remove'), admin_venue_url(item), :class => "action", :method => :delete, :confirm => t('venues.confirm_delete'))
+      - else
+        %tr
+          %td.empty{:colspan => 4}= t('venues.no_venues')
+
+#actions
+  = pagination_for(models)
+  %ul
+    %li= link_to image('plus') + " " + t("venues.new_venue"), new_admin_venue_path, :class => 'action_button'
