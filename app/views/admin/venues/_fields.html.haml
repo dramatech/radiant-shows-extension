@@ -1,6 +1,14 @@
 %p.title
   = label :venue_page, :name, 'Title'
   = object.text_field :name, :class => 'textbox', :maxlength => 255, :id => 'venue_name'
+%table.fieldset#seating
+  %tr
+    %th.label
+      %label= t('seating.add_seating_type')
+    %td.actions
+      - link_to '#add_seating_type_popup', :class=>'popup' do
+        = image 'plus_grey', :alt => t('seating.add_seating_type')
+  = render :partial => 'admin/seating_types/seating_type', :locals => { :owner_model => 'venue' }, :collection => @venue.seating_types
 %p.buttons{:style=>"clear: left"}
   = save_model_button(model)
   = save_model_and_continue_editing_button(model)

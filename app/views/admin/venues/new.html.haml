@@ -1,4 +1,5 @@
 %h1= t('venues.new_venue')
 - form_for [:admin, model], :url => admin_venues_url do |f|
   =render 'fields', :object => f
-- content_for 'venue_scripts', venue_edit_javascripts
+= render :partial => '/admin/seating_types/popups'
+- include_javascript 'admin/seating_type'

@@ -1,0 +1,15 @@
+- content_for 'popups' do
+  #add_seating_type_popup.popup{:style=>"display: none"}
+    #add_seating_type_busy.busy{:style=>"display: none"}= image('spinner.gif', :alt => "")
+    .popup_title= t('seating.add_seating_type')
+    - form_for [:admin, SeatingType.new], :html => { :onsubmit => "event.stop(); addSeatingType(this,'#{model.class.to_s.downcase}')" } do |f|
+      %p
+        %label{:for=>"#{model.class.to_s.downcase}_seating_type_name"}= t('name')
+        = f.text_field :name, :maxlength=>100, :class=>'textbox big', :style=>"width: 15em"
+        = hidden_field_tag 'index', 2, :id=>"#{model.class.to_s.downcase}_seating_type_index_field"
+        = hidden_field_tag 'seating_type_counter', model.seating_types.size
+        = hidden_field_tag 'owner_model', model.class.to_s.downcase
+      .buttons
+        = submit_tag t('seating.add_seating_type'), :class=>'button', :id=>"add_#{model.class.to_s.downcase}_seating_type_button"
+        = t('or')
+        = link_to_function t('cancel'), "$(this).closePopup()", :class=>"cancel"

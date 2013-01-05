@@ -1,0 +1,10 @@
+%tr
+  %th.label
+    %label{:for=>"seating_type_#{seating_type.name}"}= seating_type.name
+  %td.field
+    = hidden_field_tag "#{owner_model}[seating_types_attributes][#{seating_type_counter}][id]", seating_type.id, :id => "seating_types_attributes_#{seating_type_counter}_id" unless seating_type.new_record?
+    = hidden_field_tag "#{owner_model}[seating_types_attributes][#{seating_type_counter}][name]", seating_type.name, :id => "seating_types_attributes_#{seating_type_counter}_name", :class => "seating_type_name"
+    = hidden_field_tag "#{owner_model}[seating_types_attributes][#{seating_type_counter}][_destroy]", seating_type._destroy, :class => 'delete_input'
+    ~ text_field_tag "#{owner_model}[seating_types_attributes][#{seating_type_counter}][capacity]", seating_type.capacity, :id => "seating_types_attributes_#{seating_type_counter}_capacity", :class => "textbox", :maxlength => 5
+  %td.actions
+    = link_to_function image('minus_grey', :alt => t('seating.remove_seating_type')), "event.stop(); window.removeSeatingType(this)", :title => t('seating.remove_seating_type')
