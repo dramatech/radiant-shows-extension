@@ -1,0 +1,21 @@
+.outset
+  %table.index
+    %thead
+      %tr
+        %th= t('shows.shows')
+        %th= t('modify')
+    %tbody
+      - unless models.blank?
+        - models.each do |item|
+          %tr
+            %td.name
+              = link_to item.title, edit_admin_show_path(item)
+            %td.actions= link_to(image('minus') + ' ' + t('remove'), admin_show_url(item), :class => "action", :method => :delete, :confirm => t('shows.confirm_delete'))
+      - else
+        %tr
+          %td.empty{:colspan => 4}= t('shows.no_shows')
+
+#actions
+  = pagination_for(models)
+  %ul
+    %li= link_to image('plus') + " " + t("shows.new_show"), new_admin_show_path, :class => 'action_button'

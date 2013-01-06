@@ -7,4 +7,6 @@
     = hidden_field_tag "#{owner_model}[seating_types_attributes][#{seating_type_counter}][_destroy]", seating_type._destroy, :class => 'delete_input'
     ~ text_field_tag "#{owner_model}[seating_types_attributes][#{seating_type_counter}][capacity]", seating_type.capacity, :id => "seating_types_attributes_#{seating_type_counter}_capacity", :class => "textbox", :maxlength => 5
   %td.actions
+    - link_to '#add_seating_type_popup', :class=>'popup', :alt => t('seating.add_seating_type') do
+      = image 'plus_grey'
     = link_to_function image('minus_grey', :alt => t('seating.remove_seating_type')), "event.stop(); window.removeSeatingType(this)", :title => t('seating.remove_seating_type')

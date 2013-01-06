@@ -1,0 +1,8 @@
+%tr
+  %th.label
+    %label{:for=>"performance_#{performance.start_datetime}"}= performance.name
+  %td.field
+    = hidden_field_tag "show[performance_attributes][#{performance_counter}][id]", performance.id, :id => "performances_attributes_#{performance_counter}_id" unless performance.new_record?
+    = hidden_field_tag "show[performances_attributes][#{performance_counter}][_destroy]", performance._destroy, :class => 'delete_input'
+  %td.actions
+    = link_to_function image('minus_grey', :alt => t('performances.remove_performance')), "event.stop(); window.removePerformance(this)", :title => t('performances.remove_performance')

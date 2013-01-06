@@ -1,0 +1,31 @@
+%p.title
+  = label :show_page, :title, 'Title'
+  = object.text_field :title, :class => 'textbox', :maxlength => 255, :id => 'show_title'
+.drawer
+  .drawer_contents
+    %table.fieldset#attributes
+      = render :partial => 'hidden_fields', :object => object
+      %tr
+        %th.label
+          %label= t('seating.add_seating_type')
+        %td.actions{:colspan => 3}
+          = link_to image('plus_grey', :alt => t('seating.add_seating_type')), '#add_seating_type_popup', :class => 'popup'
+        = render :partial => 'admin/seating_types/seating_type', :locals => { :owner_model => 'show' }, :collection => @show.seating_types
+  .drawer_handle
+    %a.toggle{:href=>'#attributes', :rel=>"toggle[attributes]", :class=>"#{(meta_errors? ? 'less' : 'more')}"}= meta_label
+%p.description
+  = label :show_description, :description, 'Description'
+  = object.text_area :description, :class => 'textbox', :size => '60x5', :id => 'show_description'
+-# %table.fieldset#performances
+  %tr
+    %th.label
+      %label= t('performances.add_performance')
+    %td.actions
+      - link_to '#add_performance_popup', :class=>'popup' do
+        = image 'plus_grey', :alt => t('performances.add_performance')
+  = render :partial => 'admin/performances/performance', :collection => @show.performances
+%p.buttons{:style=>"clear: left"}
+  = save_model_button(model)
+  = save_model_and_continue_editing_button(model)
+  = t('or')
+  = link_to t('cancel'), admin_shows_url

@@ -1,0 +1,14 @@
+%tr
+  %th.label
+    %label Author
+  %td.field
+    = object.text_field :author, :class => 'textbox', :maxlength => 255, :id => 'show_author'
+  %th.label
+    %label Director
+  %td.field
+    = object.text_field :director, :class => 'textbox', :maxlength => 255, :id => 'show_director'
+%tr
+  %th.label
+    %label= t('notes')
+  %td.field{:colspan => 3}
+    = object.text_field :notes, :class => 'textbox', :maxlength => 500, :id => 'show_notes'

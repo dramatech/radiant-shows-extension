@@ -1,0 +1,14 @@
+- content_for 'popups' do
+  #add_performance_popup.popup{:style=>"display: none"}
+    #add_performance_busy.busy{:style=>"display: none"}= image('spinner.gif', :alt => "")
+    .popup_title= t('performances.add_performance')
+    - form_for [:admin, Performance.new], :html => { :onsubmit => "event.stop(); addPerformance(this)" } do |f|
+      %p
+        %label{:for=>'show_performance_name'}= t('name')
+        = f.text_field :start_datetime, :class=>'date big', :style=>"width: 15em"
+        = hidden_field_tag 'index', 2, :id=>'show_performance_index_field'
+        = hidden_field_tag 'performance_counter', @show.performances.size
+      .buttons
+        = submit_tag t('performances.add_performance'), :class=>'button', :id=>"add_show_performance_button"
+        = t('or')
+        = link_to_function t('cancel'), "$(this).closePopup()", :class=>"cancel"
