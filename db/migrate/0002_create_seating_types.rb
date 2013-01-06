@@ -4,6 +4,7 @@ class CreateSeatingTypes < ActiveRecord::Migration
       t.references :seatable, :polymorphic => true
       t.string :name, :limit => 255
       t.integer :capacity
+
       t.timestamps
     end
   end
