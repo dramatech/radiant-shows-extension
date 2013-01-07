@@ -17,3 +17,9 @@
     %label= t('reservations.threshold')
   %td.actions{ :colspan => 3 }
     = object.select(:threshold_seconds, model.hours_for_select)
+%tr
+  %th.label
+    %label= t('shows.show_length')
+  %td.actions{ :colspan => 3 }
+    = object.text_field :length, :class => 'textbox', :maxlength => 5, :id => 'show_length'
+    min

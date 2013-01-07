@@ -19,6 +19,7 @@ en:
     new_show: New Show
     no_shows: No Shows
     show: Show
+    show_length: Runtime
     shows: Shows
   venues:
     confirm_delete: Are you sure you want to delete this venue?

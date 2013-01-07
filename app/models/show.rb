@@ -17,10 +17,6 @@ class Show < ActiveRecord::Base
     !!reservable
   end
 
-  def length
-    length_seconds / 60
-  end
-
   def reservations_open_string=(date)
     reservations_open = Date.parse(date)
   end

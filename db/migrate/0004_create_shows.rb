@@ -8,7 +8,7 @@ class CreateShows < ActiveRecord::Migration
       t.text    :description, :length => 500
       t.text    :notes, :length => 500
 
-      t.integer :length_seconds
+      t.integer :length
       t.integer :threshold_seconds
 
       t.boolean :private
