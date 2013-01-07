@@ -23,3 +23,8 @@
   %td.actions{ :colspan => 3 }
     = object.text_field :length, :class => 'textbox', :maxlength => 5, :id => 'show_length'
     min
+%tr
+  %th.label
+    %label= t('shows.private_show')
+  %td.actions{ :colspan => 3 }
+    = object.check_box :private, :id => 'show_private'
