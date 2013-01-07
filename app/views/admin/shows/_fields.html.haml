@@ -35,3 +35,6 @@
   = save_model_and_continue_editing_button(model)
   = t('or')
   = link_to t('cancel'), admin_shows_url
+  %span{ :style => 'margin-left: 2em' }
+    = object.check_box :draft, :id => 'show_draft', :style => 'vertical-align: middle'
+    Draft

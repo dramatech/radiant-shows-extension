@@ -12,7 +12,7 @@ class CreateShows < ActiveRecord::Migration
       t.integer :threshold_seconds
 
       t.boolean :private
-      t.boolean :draft
+      t.boolean :draft, :default => true
 
       t.date    :reservations_open
       t.date    :reservations_close

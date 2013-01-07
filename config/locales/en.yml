@@ -1,6 +1,7 @@
 ---
 en:
   description: Description
+  draft: Draft
   notes: Notes
   performances:
     add_performance: Add Performance
