@@ -1,9 +1,14 @@
 ---
 en:
+  description: Description
   notes: Notes
   performances:
     add_performance: Add Performance
     same_start_time: There is already a performance at this time!
+  reservations:
+    reservations_close: Reservations Close
+    reservations_open: Reservations Open
+    threshold: Reservations Threshold
   seating:
     add_seating_type: Add Seating
     remove_seating_type: Remove Seating

@@ -10,5 +10,10 @@
 %tr
   %th.label
     %label= t('notes')
-  %td.field{:colspan => 3}
+  %td.field{ :colspan => 3 }
     = object.text_field :notes, :class => 'textbox', :maxlength => 500, :id => 'show_notes'
+%tr
+  %th.label
+    %label= t('reservations.threshold')
+  %td.actions{ :colspan => 3 }
+    = object.select(:threshold_seconds, model.hours_for_select)

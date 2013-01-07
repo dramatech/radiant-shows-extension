@@ -14,8 +14,14 @@
   .drawer_handle
     %a.toggle{:href=>'#attributes', :rel=>"toggle[attributes]", :class=>"#{(meta_errors? ? 'less' : 'more')}"}= meta_label
 %p.description
-  = label :show_description, :description, 'Description'
+  = label :show_description, :description, t('description')
   = object.text_area :description, :class => 'textbox', :size => '60x5', :id => 'show_description'
+%p{ :style => 'display: inline-block' }
+  = label :show_reservations_open, :reservations_open_string, t('reservations.reservations_open')
+  = object.text_field :reservations_open_string, :class => 'date', :id => 'show_reservations_open', :value => (model.new_record? || model.reservations_open.nil? ? I18n.localize(Date.today, :format => :long) : I18n.localize(model.reservations_open, :format => :long))
+%p{ :style => 'display: inline-block; margin-left: 1em' }
+  = label :show_reservations_close, :reservations_close_string, t('reservations.reservations_close')
+  = object.text_field :reservations_close_string, :class => 'date', :id => 'show_reservations_close', :value => (model.new_record? || model.reservations_close.nil? ? I18n.localize(Date.today, :format => :long) : I18n.localize(model.reservations_close, :format => :long))
 -# %table.fieldset#performances
   %tr
     %th.label

@@ -17,64 +17,20 @@ class Show < ActiveRecord::Base
     !!reservable
   end
 
-  def reservation_threshold
-    threshold_seconds / 3600
-  end
-
   def length
     length_seconds / 60
   end
 
-  def reservations_open_day
-    reservations_open.day
+  def reservations_open_string=(date)
+    reservations_open = Date.parse(date)
   end
 
-  def reservations_open_month
-    Date::ABBR_MONTHNAMES[reservations_open.month]
+  def reservations_close_string=(date)
+    reservations_close = Date.parse(date)
   end
 
-  def reservations_open_year
-    reservations_open.year
-  end
-
-  def reservations_close_day
-    reservations_close.day
-  end
-
-  def reservations_close_month
-    Date::ABBR_MONTHNAMES[reservations_close.month]
-  end
-
-  def reservations_close_year
-    reservations_close.year
-  end
-
-  def reservations_open_day=(day)
-    reservations_open = Date.new(reservations_open.year, reservations_open.month, day)
-  end
-
-  def reservations_open_month=(month)
-    reservations_open = Date.new(reservations_open.year,
-                        month.is_a?(String) ? Date::ABBR_MONTHNAMES.index(month) : month,
-                        reservations_open.day)
-  end
-
-  def reservations_open_year=(year)
-    reservations_open = Date.new(year, reservations_open.month, reservations_open.day)
-  end
-
-  def reservations_close_day=(day)
-    reservations_close = Date.new(reservations_close.year, reservations_close.month, day)
-  end
-
-  def reservations_close_month=(month)
-    reservations_close = Date.new(reservations_close.year,
-                        month.is_a?(String) ? Date::ABBR_MONTHNAMES.index(month) : month,
-                        reservations_close.day)
-  end
-
-  def reservations_close_year=(year)
-    reservations_close = Date.new(year, reservations_close.month, reservations_close.day)
+  def hours_for_select
+    Array(1..12).collect { |i| ["#{i} hour" + (i != 1 ? 's' : ''), i * 3600] }
   end
 
   def to_s

@@ -1,6 +1,6 @@
 %h1= t('shows.new_show')
 - form_for [:admin, model], :url => admin_shows_url do |f|
-  = render 'fields', :object => f
+  = render :partial => 'fields', :object => f
 = render :partial => '/admin/seating_types/popups'
 -# = render :partial => '/admin/performances/popups'
 - include_javascript 'admin/seating_type'
