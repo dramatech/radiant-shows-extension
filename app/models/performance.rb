@@ -1,6 +1,6 @@
 class Performance < ActiveRecord::Base
   belongs_to :show
-  has_a :venue
+  has_one :venue
   has_many :seating_types, :as => :seatable, :order => 'id', :dependent => :destroy
   accepts_nested_attributes_for :seating_types, :allow_destroy => true
 
@@ -9,16 +9,20 @@ class Performance < ActiveRecord::Base
 
   validates_length_of :notes, :maximum => 500
 
-  def date
-    start_datetime.to_date
-  end
-
-  def time
-    start_datetime.to_time
-  end
-
   def reservable?
     !!reservable
+  end
+
+  def start_string=(val)
+    self.start_datetime = DateTime.parse(val)
+  end
+
+  def start_string
+    unless self.start_datetime.nil?
+      I18n.l(self.start_datetime, :format => :long)
+    else
+      t('performances.no_performance_date_error')
+    end
   end
 
   def to_s

@@ -22,14 +22,15 @@
 %p{ :style => 'display: inline-block; margin-left: 1em' }
   = label :show_reservations_close, :reservations_close_string, t('reservations.reservations_close')
   = object.text_field :reservations_close_string, :class => 'date', :id => 'show_reservations_close', :value => (model.new_record? || model.reservations_close.nil? ? I18n.localize(Date.today, :format => :long) : I18n.localize(model.reservations_close, :format => :long))
--# %table.fieldset#performances
+%table.fieldset#performances
   %tr
     %th.label
-      %label= t('performances.add_performance')
+      %p
+        %label= t('performances.add_performance')
     %td.actions
       - link_to '#add_performance_popup', :class=>'popup' do
         = image 'plus_grey', :alt => t('performances.add_performance')
-  = render :partial => 'admin/performances/performance', :collection => @show.performances
+    = render :partial => 'admin/performances/performance', :collection => @show.performances
 %p.buttons{:style=>"clear: left"}
   = save_model_button(model)
   = save_model_and_continue_editing_button(model)

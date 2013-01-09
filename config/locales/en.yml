@@ -1,10 +1,13 @@
 ---
 en:
+  datetime: Date / Time
   description: Description
   draft: Draft
   notes: Notes
   performances:
     add_performance: Add Performance
+    no_performance_date_error: No Performance Date Set
+    remove_performance: Remove Performance
     same_start_time: There is already a performance at this time!
   reservations:
     reservations_close: Reservations Close

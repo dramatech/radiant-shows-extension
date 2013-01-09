@@ -1,6 +1,6 @@
 class Show < ActiveRecord::Base
   has_many :seating_types, :as => :seatable, :order => 'id', :dependent => :destroy
-  has_many :performances, :order => 'start_datetime', :dependent => :destroy
+  has_many :performances, :dependent => :destroy
   has_many :venues, :through => :performances
   accepts_nested_attributes_for :seating_types, :allow_destroy => true
   accepts_nested_attributes_for :performances, :allow_destroy => true

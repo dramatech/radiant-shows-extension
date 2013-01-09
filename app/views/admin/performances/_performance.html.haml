@@ -1,8 +1,16 @@
 %tr
   %th.label
-    %label{:for=>"performance_#{performance.start_datetime}"}= performance.name
-  %td.field
-    = hidden_field_tag "show[performance_attributes][#{performance_counter}][id]", performance.id, :id => "performances_attributes_#{performance_counter}_id" unless performance.new_record?
+    %label= performance.start_string
+  %td.field 
+    = check_box "show[performances_attributes][#{performance_counter}]", :reservable, :checked => performance.reservable, :style => 'vertical-align: middle' 
+    %label Reservable
+    = hidden_field_tag "show[performances_attributes][#{performance_counter}][id]", performance.id, :id => "performances_attributes_#{performance_counter}_id" unless performance.new_record?
+    = hidden_field_tag "show[performances_attributes][#{performance_counter}][start_string]", performance.start_string, :id => "performances_attributes_#{performance_counter}_start_string", :class => "performance_start_string"
     = hidden_field_tag "show[performances_attributes][#{performance_counter}][_destroy]", performance._destroy, :class => 'delete_input'
   %td.actions
     = link_to_function image('minus_grey', :alt => t('performances.remove_performance')), "event.stop(); window.removePerformance(this)", :title => t('performances.remove_performance')
+%tr
+  %th.label
+    %label Notes
+  %td.field
+    ~ text_field_tag "show[performances_attributes][#{performance_counter}][notes]", performance.notes, :id => "performances_attributes_#{performance_counter}_notes", :class => "textbox", :maxlength => 500
