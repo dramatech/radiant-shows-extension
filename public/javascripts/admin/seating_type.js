@@ -1,7 +1,7 @@
 function addSeatingType(form, model) {
   if (validSeatingTypeName()) {
     new Ajax.Updater(
-      $('attributes').down('tbody'),
+      $(model + 'attributes').down('tbody'),
       relative_url_root + '/admin/seating_types/',
       {
         asynchronous: true,

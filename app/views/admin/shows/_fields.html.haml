@@ -3,7 +3,7 @@
   = object.text_field :title, :class => 'textbox', :maxlength => 255, :id => 'show_title'
 .drawer
   .drawer_contents
-    %table.fieldset#attributes
+    %table.fieldset#showattributes
       = render :partial => 'hidden_fields', :locals => {:show => @show}, :object => object
   .drawer_handle
     %a.toggle{:href=>'#attributes', :rel=>"toggle[attributes]", :class=>"#{(meta_errors? ? 'less' : 'more')}"}= meta_label
@@ -16,7 +16,7 @@
 %p{ :style => 'display: inline-block; margin-left: 1em' }
   = label :show_reservations_close, :reservations_close_string, t('reservations.reservations_close')
   = object.text_field :reservations_close_string, :class => 'date', :id => 'show_reservations_close', :value => (model.new_record? || model.reservations_close.nil? ? I18n.localize(Date.today, :format => :long) : I18n.localize(model.reservations_close, :format => :long))
-%table.fieldset#performances
+%table.fieldset#performanceattributes
   %tr
     %th.label
       %p

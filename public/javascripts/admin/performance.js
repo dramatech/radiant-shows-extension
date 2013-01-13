@@ -1,7 +1,7 @@
 function addPerformance(form) {
   if (validPerformanceDate()) {
     new Ajax.Updater(
-      $('performances').down('tbody'),
+      $('performanceattributes').down('tbody'),
       relative_url_root + '/admin/performances/',
       {
         asynchronous: true,

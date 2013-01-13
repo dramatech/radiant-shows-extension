@@ -14,3 +14,9 @@
     %label Notes
   %td.field
     ~ text_field_tag "show[performances_attributes][#{performance_counter}][notes]", performance.notes, :id => "performances_attributes_#{performance_counter}_notes", :class => "textbox", :maxlength => 500
+%tr
+  %th.label
+    %label= t('seating.add_seating_type')
+  %td.actions
+    = link_to image('plus_grey', :alt => t('seating.add_seating_type')), '#add_seating_type_popup', :class => 'popup'
+  = render :partial => 'admin/seating_types/seating_type', :locals => { :owner_model => 'performance' }, :collection => performance.seating_types

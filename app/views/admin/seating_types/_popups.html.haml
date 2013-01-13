@@ -10,6 +10,6 @@
         = hidden_field_tag 'seating_type_counter', model.seating_types.size
         = hidden_field_tag 'owner_model', model.class.to_s.downcase
       .buttons
-        = submit_tag t('seating.add_seating_type'), :class=>'button', :id=>"add_#{model.class.to_s.downcase}_seating_type_button"
+        = submit_tag t('seating.add_seating_type'), :class=> 'button', :id=> "add_#{model.class.to_s.downcase}_seating_type_button"
         = t('or')
-        = link_to_function t('cancel'), "$(this).closePopup()", :class=>"cancel"
+        = link_to_function t('cancel'), "$(this).closePopup()", :class=> 'cancel'
