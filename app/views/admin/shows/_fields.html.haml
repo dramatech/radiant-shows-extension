@@ -4,13 +4,7 @@
 .drawer
   .drawer_contents
     %table.fieldset#attributes
-      = render :partial => 'hidden_fields', :object => object
-      %tr
-        %th.label
-          %label= t('seating.add_seating_type')
-        %td.actions{:colspan => 3}
-          = link_to image('plus_grey', :alt => t('seating.add_seating_type')), '#add_seating_type_popup', :class => 'popup'
-        = render :partial => 'admin/seating_types/seating_type', :locals => { :owner_model => 'show' }, :collection => @show.seating_types
+      = render :partial => 'hidden_fields', :locals => {:show => @show}, :object => object
   .drawer_handle
     %a.toggle{:href=>'#attributes', :rel=>"toggle[attributes]", :class=>"#{(meta_errors? ? 'less' : 'more')}"}= meta_label
 %p.description

@@ -28,3 +28,9 @@
     %label= t('shows.private_show')
   %td.actions{ :colspan => 3 }
     = object.check_box :private, :id => 'show_private'
+%tr
+  %th.label
+    %label= t('seating.add_seating_type')
+  %td.actions{:colspan => 3}
+    = link_to image('plus_grey', :alt => t('seating.add_seating_type')), '#add_seating_type_popup', :class => 'popup'
+  = render :partial => 'admin/seating_types/seating_type', :locals => { :owner_model => 'show' }, :collection => show.seating_types
